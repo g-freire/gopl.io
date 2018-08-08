@@ -1,6 +1,3 @@
-// Copyright © 2016 Alan A. A. Donovan & Brian W. Kernighan.
-// License: https://creativecommons.org/licenses/by-nc-sa/4.0/
-
 package word
 
 import (
@@ -9,13 +6,9 @@ import (
 	"time"
 )
 
-//!+bench
-
 import "testing"
 
-//!-bench
-
-//!+test
+// automatiza parametrizacao dos testes
 func TestIsPalindrome(t *testing.T) {
 	var tests = []struct {
 		input string
