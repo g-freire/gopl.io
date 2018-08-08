@@ -8,7 +8,7 @@ import (
 
 import "testing"
 
-// automatiza parametrizacao dos testes
+// automatiza parametrizacao dos testesa
 func TestIsPalindrome(t *testing.T) {
 	var tests = []struct {
 		input string
