@@ -1,6 +1,7 @@
 // responsabilidade: contar os bytes escritos antes destes serem descartados, serializacao int para bytecounter
 // *ByteCounter sastisfaz o contrato de io.Writer, que por sua vez satizfaz o contrato de Fprint, responsavel pela formatacao em comum
 // dos metodos do pacote fmt
+// design pattern strategy (responsabilidades em comum do pacote se relacionam com diferentes estrategias de implementacoes)
 
 package main
 
