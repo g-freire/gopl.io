@@ -1,35 +1,28 @@
-// Copyright © 2016 Alan A. A. Donovan & Brian W. Kernighan.
-// License: https://creativecommons.org/licenses/by-nc-sa/4.0/
+// responsabilidade: contar os bytes escritos antes destes serem descartados, serializacao int para bytecounter
+// *ByteCounter sastisfaz o contrato de io.Writer, que por sua vez satizfaz o contrato de Fprint, responsavel pela formatacao em comum
+// dos metodos do pacote fmt
 
-// See page 173.
-
-// Bytecounter demonstrates an implementation of io.Writer that counts bytes.
 package main
 
 import (
 	"fmt"
 )
 
-//!+bytecounter
-
 type ByteCounter int
 
+// metodo responsavel por contagem de bytes na stream
 func (c *ByteCounter) Write(p []byte) (int, error) {
 	*c += ByteCounter(len(p)) // convert int to ByteCounter
 	return len(p), nil
 }
-
-//!-bytecounter
-
+// debugando v->v,e espacos 
 func main() {
-	//!+main
 	var c ByteCounter
 	c.Write([]byte("hello"))
 	fmt.Println(c) // "5", = len("hello")
-
+	
 	c = 0 // reset the counter
 	var name = "Dolly"
 	fmt.Fprintf(&c, "hello, %s", name)
 	fmt.Println(c) // "12", = len("hello, Dolly")
-	//!-main
 }
